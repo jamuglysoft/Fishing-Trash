@@ -9,6 +9,9 @@ public class Jellyfish : MonoBehaviour
     private bool go_up = true;
     public float speed = 1f;
 
+    public Transform player;
+    private Vector3 to_go;
+
     private Vector3 init_pos;
 
     // Start is called before the first frame update
@@ -32,5 +35,8 @@ public class Jellyfish : MonoBehaviour
             if (transform.position.y <= init_pos.y + min_up)
                 go_up = !go_up;
         }
+
+        to_go = player.position - transform.position;
+        transform.Translate(to_go.normalized * 0.02f);
     }
 }

@@ -21,7 +21,9 @@ public class PlayerController : MonoBehaviour
 
     public float speed = 0.0F;
     public float water_friction = 0.0F;
-    private float rotation = 0.0F;
+
+    [HideInInspector]
+    public float rotation = 0.0F;
 
     private float axis_x = 0.0F;
     private float axis_y = 0.0F;

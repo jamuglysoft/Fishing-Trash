@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour
     private float axis_x = 0.0F;
     private float axis_y = 0.0F;
 
+    private bool grow = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -109,11 +111,15 @@ public class PlayerController : MonoBehaviour
     {
         //transform.lossyScale{ };
 
-        StartCoroutine(LerpScale(0.5f));
+        if (grow == false)
+        {
+            StartCoroutine(LerpScale(0.5f));
+        }
     }
 
     private IEnumerator LerpScale(float time)
     {
+        grow = true;
         Vector3 originalScale = transform.localScale;
         Vector3 targetScale = originalScale + new Vector3( 1.0f, 1.0f, 1.0f);
         float OriginalTime = time;
@@ -131,7 +137,8 @@ public class PlayerController : MonoBehaviour
                 transform.localScale = Vector3.Lerp(originalScale, targetScale, time / OriginalTime);
             }
             yield return null;
-        }   
+        }
+        grow = false;
     }
 
 }

@@ -24,21 +24,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (rigid_body.velocity.x<-0.1f)
-        {
-            sprite.flipX = true;
-        }
-
-        else if (rigid_body.velocity.x > 0.1f)
-        {
-            sprite.flipX = false;
-        }
-
-        if(rigid_body.velocity.x!=0)
+        if(rigid_body.velocity != Vector2.zero)
         {
             anim.SetBool("Moving", true);
         }
-        else if(rigid_body.velocity.y==0)
+        else if(rigid_body.velocity == Vector2.zero)
         {
             anim.SetBool("Moving", false);
         }
@@ -66,6 +56,7 @@ public class PlayerController : MonoBehaviour
         {
             rigid_body.velocity = new Vector2(rigid_body.velocity.x, rigid_body.velocity.y * water_friction);
         }
-
+        float angle = Mathf.Atan2(axis_y, axis_x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 }

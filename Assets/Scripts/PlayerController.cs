@@ -5,9 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-
     private Animator anim;
     private Rigidbody2D rigid_body;
+    private SpriteRenderer sprite;
 
     public float speed = 0.0F;
 
@@ -17,12 +17,22 @@ public class PlayerController : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rigid_body = GetComponent<Rigidbody2D>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (rigid_body.velocity.x<-0.1f)
+        {
+            sprite.flipX = true;
+        }
+
+        else if (rigid_body.velocity.x > 0.1f)
+        {
+            sprite.flipX = false;
+        }
+
     }
 
     private void FixedUpdate()

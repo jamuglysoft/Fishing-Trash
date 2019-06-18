@@ -9,15 +9,24 @@ public class PlayerController : MonoBehaviour
     {
         IDLE = 1,
         MOVE = 2,
+        FLASHING = 3,
 
         NONE
     }
+
+    private bool flashing = false;
+
+    public float flash_cooldown = 0.0F;
+    public Vector2 flash_force;
+    private Vector2 flash_axis;
+    private float flash_time = 0.0F;
 
     private PlayerStates player_state = PlayerStates.IDLE;
 
     private Animator anim;
     private Rigidbody2D rigid_body;
     private SpriteRenderer sprite;
+
 
     public float speed = 0.0F;
     public float water_friction = 0.0F;
@@ -53,7 +62,7 @@ public class PlayerController : MonoBehaviour
         GetInput();
         ChangeState();
     }
-
+    
     private void FixedUpdate()
     {
         PerformActions();
@@ -62,6 +71,16 @@ public class PlayerController : MonoBehaviour
     {
         axis_x = Input.GetAxis("Horizontal");
         axis_y = Input.GetAxis("Vertical");
+
+        if (Input.GetKeyDown(KeyCode.Joystick1Button5) && !flashing)
+        {
+            player_state = PlayerStates.FLASHING;
+            flash_axis = new Vector2(axis_x, axis_y);
+            rigid_body.AddForce(new Vector2(flash_axis.x * flash_force.x, flash_axis.y * flash_force.y), ForceMode2D.Impulse);
+            flashing = true;
+            flash_time = Time.realtimeSinceStartup;
+            
+        }
     }
 
     void ChangeState()
@@ -80,6 +99,12 @@ public class PlayerController : MonoBehaviour
                     player_state = PlayerStates.IDLE;
                 }
                 break;
+            case PlayerStates.FLASHING:
+                if (!flashing)
+                {
+                    player_state = PlayerStates.MOVE;
+                }
+                break;
             default:
                 break;
         }
@@ -90,7 +115,7 @@ public class PlayerController : MonoBehaviour
         switch (player_state)
         {
             case PlayerStates.IDLE:
-                rigid_body.velocity = new Vector2(axis_x * water_friction, axis_y * water_friction);
+                rigid_body.velocity = new Vector2(axis_x * speed * water_friction, axis_y * speed * water_friction);
                 break;
             case PlayerStates.MOVE:
                 rigid_body.velocity = new Vector2(axis_x * speed * water_friction, axis_y * speed * water_friction);
@@ -98,8 +123,15 @@ public class PlayerController : MonoBehaviour
                 transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
                 rotation = angle;
                 break;
+            case PlayerStates.FLASHING:
+                if (flash_time < Time.realtimeSinceStartup - flash_cooldown)
+                {
+                    flashing = false;
+                }
+                break;
             default:
                 break;
         }
+        Debug.Log(rigid_body.velocity);
     }
 }

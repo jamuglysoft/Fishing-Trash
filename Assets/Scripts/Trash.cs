@@ -31,25 +31,40 @@ public class Trash : MonoBehaviour
     void Update()
     {
         transform.Translate(direction * speed * Time.deltaTime);
-
-        if (transform.position.y <= spawn.rect.yMin || transform.position.y >= spawn.rect.yMax)
-        {
-            direction.y *= -1;
-        }
-        if(transform.position.x <= spawn.rect.xMin || transform.position.x >= spawn.rect.xMax)
-        {
-            direction.x *= -1;
-        }
+        //if (transform.position.y <= spawn.rect.yMin || transform.position.y >= spawn.rect.yMax)
+        //{
+        //    direction.y *= -1;
+        //}
+        //if(transform.position.x <= spawn.rect.xMin || transform.position.x >= spawn.rect.xMax)
+        //{
+        //    direction.x *= -1;
+        //}
 
         transform.Rotate(Vector3.forward, rotation_angle * Time.deltaTime);
     }
 
     IEnumerator Fade()
     {
-        for (int i = 0; i < 100; i++)
+        for (float i = 0; i <= 1f; i += 0.1f)
         {
-            transform.localScale = new Vector3(i * 0.01f, i * 0.01f, 1);
+            transform.localScale = new Vector3(i, i, 1);
             yield return null;
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("MapLimit"))
+        {
+            direction = -transform.position;
+            direction.Normalize();
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("MapLimit"))
+        {
+            direction = -transform.position;
+            direction.Normalize();
         }
     }
 }

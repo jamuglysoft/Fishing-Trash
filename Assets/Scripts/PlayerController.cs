@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     private Rigidbody2D rigid_body;
     private SpriteRenderer sprite;
+    private PolygonCollider2D collision;
 
 
     public float speed = 0.0F;
@@ -37,12 +38,15 @@ public class PlayerController : MonoBehaviour
     private float axis_x = 0.0F;
     private float axis_y = 0.0F;
 
+    private bool grow = false;
+
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         rigid_body = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
+        collision = GetComponent<PolygonCollider2D>();
     }
 
     // Update is called once per frame
@@ -134,4 +138,39 @@ public class PlayerController : MonoBehaviour
         }
         Debug.Log(rigid_body.velocity);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //transform.lossyScale{ };
+
+        if (grow == false)
+        {
+            StartCoroutine(LerpScale(0.5f));
+        }
+    }
+
+    private IEnumerator LerpScale(float time)
+    {
+        grow = true;
+        Vector3 originalScale = transform.localScale;
+        Vector3 targetScale = originalScale + new Vector3( 1.0f, 1.0f, 1.0f);
+        float OriginalTime = time;
+        float halftime = time / 2;
+
+        while (time>0.0f)
+        {
+            time -= Time.deltaTime;
+            if (time > halftime)
+            {
+                transform.localScale = Vector3.Lerp(targetScale, originalScale, time / OriginalTime);
+            }
+            else if (time <= halftime)
+            {
+                transform.localScale = Vector3.Lerp(originalScale, targetScale, time / OriginalTime);
+            }
+            yield return null;
+        }
+        grow = false;
+    }
+
 }

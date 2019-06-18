@@ -32,7 +32,14 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetBool("Moving", false);
         }
-
+        if (transform.rotation.eulerAngles.z > 90.0F && transform.rotation.eulerAngles.z < 270F)
+        {
+            sprite.flipY = true;
+        }
+        else if (transform.rotation.eulerAngles.z < 90.0F && transform.rotation.eulerAngles.z > -90.0F)
+        {
+            sprite.flipY = false;
+        }
     }
 
     private void FixedUpdate()

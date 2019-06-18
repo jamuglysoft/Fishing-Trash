@@ -8,10 +8,12 @@ public class TrashManager : MonoBehaviour
     public GameObject obj;
     float time = 0f;
     public float time_to_spawn;
+    RectTransform area_spawn;
     // Start is called before the first frame update
     void Start()
     {
         time = Time.realtimeSinceStartup;
+        area_spawn = GetComponent<RectTransform>();
     }
 
     // Update is called once per frame
@@ -19,8 +21,12 @@ public class TrashManager : MonoBehaviour
     {
         if(Time.realtimeSinceStartup - time >= time_to_spawn)
         {
-            GameObject instance = Instantiate(obj);
-            instance.transform.position = new Vector3(Random.Range(-10, 10), Random.Range(-5, 5), instance.transform.position.z);
+            GameObject instance = Instantiate(obj,transform);
+            instance.GetComponent<Trash>().spawn = area_spawn;
+            instance.transform.position = new Vector3(
+                Random.Range(area_spawn.rect.xMin, area_spawn.rect.xMax), 
+                Random.Range(area_spawn.rect.yMin, area_spawn.rect.yMax), 
+                instance.transform.position.z);
             time = Time.realtimeSinceStartup;
         }
     }

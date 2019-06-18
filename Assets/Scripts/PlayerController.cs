@@ -158,6 +158,10 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine(LerpScale(0.5f));
             }  
         }
+        else if (collision.gameObject.CompareTag("Enemy"))
+        {
+            // Pos ma dao el bicho
+        }
     }
 
     private IEnumerator LerpScale(float time)

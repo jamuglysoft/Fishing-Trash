@@ -7,6 +7,7 @@ TagManager:
   - PickUp
   - MapLimit
   - Laser
+  - Enemy
   layers:
   - Default
   - TransparentFX

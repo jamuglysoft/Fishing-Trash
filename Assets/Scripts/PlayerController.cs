@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
 
     public float speed = 0.0F;
     public float water_friction = 0.0F;
-
+    
     [HideInInspector]
     public float rotation = 0.0F;
 
@@ -59,6 +59,7 @@ public class PlayerController : MonoBehaviour
             GameObject instant = Instantiate(laser);
             instant.transform.position = transform.position+transform.right*0.75f;
             instant.transform.up = transform.right;
+            AudioScript.PlaySound("laser");
         }
 
         anim.SetInteger("State", (int)player_state);

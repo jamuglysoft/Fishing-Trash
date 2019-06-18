@@ -24,7 +24,7 @@ public class Trash : MonoBehaviour
             rotation_angle *= -1;
         }
 
-        StartCoroutine("Fade");
+        //StartCoroutine("Fade");
     }
 
     // Update is called once per frame
@@ -46,9 +46,9 @@ public class Trash : MonoBehaviour
 
     IEnumerator Fade()
     {
-        for (int i = 0; i < 100; i++)
+        for (float i = 0; i <= 1f; i += 0.1f)
         {
-            transform.localScale = new Vector3(i * 0.01f, i * 0.01f, 1);
+            transform.localScale = new Vector3(i, i, 1);
             yield return null;
         }
     }

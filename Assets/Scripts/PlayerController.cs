@@ -152,10 +152,11 @@ public class PlayerController : MonoBehaviour
         //transform.lossyScale{ };
         if (collision.gameObject.CompareTag("PickUp"))
         {
+            AudioScript.PlaySound("pick_trash");
             if (grow == false)
             {
                 StartCoroutine(LerpScale(0.5f));
-            }
+            }  
         }
         else if (collision.gameObject.CompareTag("Enemy"))
         {

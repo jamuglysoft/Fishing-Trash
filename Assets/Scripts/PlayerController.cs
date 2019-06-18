@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rigid_body;
 
     public float speed = 0.0F;
+    public float water_friction = 0.0F;
 
 
     // Start is called before the first frame update
@@ -32,11 +33,20 @@ public class PlayerController : MonoBehaviour
 
         if (axis_x != 0)
         {
-            rigid_body.velocity = new Vector2(axis_x * speed, rigid_body.velocity.y);
+            rigid_body.velocity = new Vector2(axis_x * speed * water_friction, rigid_body.velocity.y);
+        }
+        else
+        {
+            rigid_body.velocity = new Vector2(water_friction * rigid_body.velocity.x, rigid_body.velocity.y);
         }
         if (axis_y != 0)
         {
-            rigid_body.velocity = new Vector2(rigid_body.velocity.x, axis_y * speed);
+            rigid_body.velocity = new Vector2(rigid_body.velocity.x, axis_y * speed * water_friction);
         }
+        else
+        {
+            rigid_body.velocity = new Vector2(rigid_body.velocity.x, rigid_body.velocity.y * water_friction);
+        }
+
     }
 }

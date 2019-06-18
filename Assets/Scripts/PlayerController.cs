@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    enum PlayerStates
+    public enum PlayerStates
     {
         IDLE = 1,
         MOVE = 2,
@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 flash_axis;
     private float flash_time = 0.0F;
 
-    private PlayerStates player_state = PlayerStates.IDLE;
+    public PlayerStates player_state = PlayerStates.IDLE;
 
     private Animator anim;
     private Rigidbody2D rigid_body;
@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
 
     public float speed = 0.0F;
     public float water_friction = 0.0F;
-
+    
     [HideInInspector]
     public float rotation = 0.0F;
 
@@ -39,6 +39,8 @@ public class PlayerController : MonoBehaviour
     private float axis_y = 0.0F;
 
     private bool grow = false;
+
+    public GameObject laser;
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +54,13 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            GameObject instant = Instantiate(laser);
+            instant.transform.position = transform.position+transform.right*0.75f;
+            instant.transform.up = transform.right;
+            AudioScript.PlaySound("laser");
+        }
 
         anim.SetInteger("State", (int)player_state);
 
@@ -136,16 +145,17 @@ public class PlayerController : MonoBehaviour
             default:
                 break;
         }
-        Debug.Log(rigid_body.velocity);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //transform.lossyScale{ };
-
-        if (grow == false)
+        if (collision.gameObject.CompareTag("PickUp"))
         {
-            StartCoroutine(LerpScale(0.5f));
+            if (grow == false)
+            {
+                StartCoroutine(LerpScale(0.5f));
+            }
         }
     }
 

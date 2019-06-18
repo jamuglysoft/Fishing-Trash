@@ -85,14 +85,14 @@ public class PlayerController : MonoBehaviour
         axis_x = Input.GetAxis("Horizontal");
         axis_y = Input.GetAxis("Vertical");
 
-        if (Input.GetKeyDown(KeyCode.Joystick1Button5) && !flashing)
+        if (Input.GetKeyDown(KeyCode.Joystick1Button5) && !flashing&&axis_x!=0)
         {
             player_state = PlayerStates.FLASHING;
             flash_axis = new Vector2(axis_x, axis_y);
             rigid_body.AddForce(new Vector2(flash_axis.x * flash_force.x, flash_axis.y * flash_force.y), ForceMode2D.Impulse);
             flashing = true;
             flash_time = Time.realtimeSinceStartup;
-            
+            AudioScript.PlaySound("dash");
         }
     }
 

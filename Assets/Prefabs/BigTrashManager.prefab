@@ -51,3 +51,5 @@ MonoBehaviour:
   obj: {fileID: 7199277054786272904, guid: 16b06335e8893ec419776e555c376f52, type: 3}
   time_to_spawn: 15
   first_spawn: 0
+  max_trash: 3
+  trash_collected: {fileID: 0}

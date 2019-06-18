@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TrashManager : MonoBehaviour
 {
-    List<GameObject> list;
     public GameObject obj;
     float time = 0f;
     public float time_to_spawn;

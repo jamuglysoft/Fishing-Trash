@@ -5,9 +5,8 @@ using UnityEngine;
 public class Parallax : MonoBehaviour
 {
     private Vector3 init_position;
-    public Camera cam;
+    public GameObject cam;
     public float speed;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +16,6 @@ public class Parallax : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		transform.position = new Vector3(cam.transform.position.x * speed + init_position.x,cam.transform.position.y * speed + init_position.y, transform.position.z);
+        transform.position = new Vector3(cam.transform.position.x * speed + init_position.x, transform.position.y, transform.position.z);
     }
 }

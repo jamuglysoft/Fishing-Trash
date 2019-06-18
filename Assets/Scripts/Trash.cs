@@ -11,7 +11,6 @@ public class Trash : MonoBehaviour
     public float min_angle_speed = 0.5f;
     public float max_angle_speed = 3f;
 
-    public RectTransform spawn;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,15 +30,6 @@ public class Trash : MonoBehaviour
     void Update()
     {
         transform.Translate(direction * speed * Time.deltaTime);
-        //if (transform.position.y <= spawn.rect.yMin || transform.position.y >= spawn.rect.yMax)
-        //{
-        //    direction.y *= -1;
-        //}
-        //if(transform.position.x <= spawn.rect.xMin || transform.position.x >= spawn.rect.xMax)
-        //{
-        //    direction.x *= -1;
-        //}
-
         transform.Rotate(Vector3.forward, rotation_angle * Time.deltaTime);
     }
 
@@ -52,14 +42,6 @@ public class Trash : MonoBehaviour
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("MapLimit"))
-        {
-            direction = -transform.position;
-            direction.Normalize();
-        }
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("MapLimit"))
         {

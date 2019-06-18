@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             GameObject instant = Instantiate(laser);
-            instant.transform.position = transform.position;
+            instant.transform.position = transform.position+transform.right*0.75f;
             instant.transform.up = transform.right;
         }
 

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PickUp : MonoBehaviour
 {
     public Text text_trash;
-    private int number_trash;
+    public int number_trash;
 
     // Start is called before the first frame update
     void Start()

@@ -18,5 +18,9 @@ public class BigTrash : Trash
             }
             Destroy(gameObject);
         }
+        else if (collision.gameObject.CompareTag("Player"))
+        {
+            // Quitale vida al player
+        }
     }
 }

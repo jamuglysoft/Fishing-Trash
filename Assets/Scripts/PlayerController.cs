@@ -5,13 +5,26 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
+    enum PlayerStates
+    {
+        IDLE = 1,
+        MOVE = 2,
+
+        NONE
+    }
+
+    private PlayerStates player_state = PlayerStates.IDLE;
+
     private Animator anim;
     private Rigidbody2D rigid_body;
     private SpriteRenderer sprite;
 
     public float speed = 0.0F;
     public float water_friction = 0.0F;
+    private float rotation = 0.0F;
 
+    private float axis_x = 0.0F;
+    private float axis_y = 0.0F;
 
     // Start is called before the first frame update
     void Start()
@@ -24,14 +37,9 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(rigid_body.velocity != Vector2.zero)
-        {
-            anim.SetBool("Moving", true);
-        }
-        else if(rigid_body.velocity == Vector2.zero)
-        {
-            anim.SetBool("Moving", false);
-        }
+
+        anim.SetInteger("State", (int)player_state);
+
         if (transform.rotation.eulerAngles.z > 90.0F && transform.rotation.eulerAngles.z < 270F)
         {
             sprite.flipY = true;
@@ -40,30 +48,58 @@ public class PlayerController : MonoBehaviour
         {
             sprite.flipY = false;
         }
+        GetInput();
+        ChangeState();
     }
 
     private void FixedUpdate()
     {
-        float axis_x = Input.GetAxis("Horizontal");
-        float axis_y = Input.GetAxis("Vertical");
+        PerformActions();
+    }
+    void GetInput()
+    {
+        axis_x = Input.GetAxis("Horizontal");
+        axis_y = Input.GetAxis("Vertical");
+    }
 
-        if (axis_x != 0)
+    void ChangeState()
+    {
+        switch (player_state)
         {
-            rigid_body.velocity = new Vector2(axis_x * speed * water_friction, rigid_body.velocity.y);
+            case PlayerStates.IDLE:
+                if (axis_x != 0 || axis_y != 0)
+                {
+                    player_state = PlayerStates.MOVE;
+                    rigid_body.bodyType = RigidbodyType2D.Dynamic;
+                }
+                break;
+            case PlayerStates.MOVE:
+                if (axis_x == 0 && axis_y == 0)
+                {
+                    player_state = PlayerStates.IDLE;
+                    rigid_body.bodyType = RigidbodyType2D.Static;
+
+                }
+                break;
+            default:
+                break;
         }
-        else
+    }
+
+    void PerformActions()
+    {
+        switch (player_state)
         {
-            rigid_body.velocity = new Vector2(water_friction * rigid_body.velocity.x, rigid_body.velocity.y);
+            case PlayerStates.IDLE:
+                break;
+            case PlayerStates.MOVE:
+                rigid_body.velocity = new Vector2(axis_x * speed * water_friction, axis_y * speed * water_friction);
+                float angle = Mathf.Atan2(axis_y, axis_x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+                rotation = angle;
+                break;
+            default:
+                break;
         }
-        if (axis_y != 0)
-        {
-            rigid_body.velocity = new Vector2(rigid_body.velocity.x, axis_y * speed * water_friction);
-        }
-        else
-        {
-            rigid_body.velocity = new Vector2(rigid_body.velocity.x, rigid_body.velocity.y * water_friction);
-        }
-        float angle = Mathf.Atan2(axis_y, axis_x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 }

@@ -40,6 +40,8 @@ public class PlayerController : MonoBehaviour
 
     private bool grow = false;
 
+    public GameObject laser;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,6 +54,12 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            GameObject instant = Instantiate(laser);
+            instant.transform.position = transform.position;
+            instant.transform.up = transform.right;
+        }
 
         anim.SetInteger("State", (int)player_state);
 

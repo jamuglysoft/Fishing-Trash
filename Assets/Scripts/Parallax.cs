@@ -16,6 +16,6 @@ public class Parallax : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = cam.transform.position * speed + init_position;
+        transform.position = new Vector3(cam.transform.position.x * speed + init_position.x,transform.position.y,transform.position.z);
     }
 }

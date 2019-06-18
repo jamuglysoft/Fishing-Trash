@@ -2,8 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.UI;
+
 public class PickUp : MonoBehaviour
 {
+    public Text text_trash;
+    private int number_trash;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +26,8 @@ public class PickUp : MonoBehaviour
         if (collision.CompareTag("PickUp"))
         {
             Destroy(collision.gameObject);
+            number_trash++;
+            text_trash.text = "Trash: " + number_trash.ToString();
         }
     }
 }

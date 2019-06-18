@@ -19,7 +19,8 @@ public class TrashManager : MonoBehaviour
     {
         if(Time.realtimeSinceStartup - time >= time_to_spawn)
         {
-            Instantiate(obj);
+            GameObject instance = Instantiate(obj);
+            instance.transform.position = new Vector3(Random.Range(-10, 10), Random.Range(-5, 5), instance.transform.position.z);
             time = Time.realtimeSinceStartup;
         }
     }

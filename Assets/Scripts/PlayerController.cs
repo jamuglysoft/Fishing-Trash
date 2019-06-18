@@ -149,10 +149,12 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //transform.lossyScale{ };
-
-        if (grow == false)
+        if (collision.gameObject.CompareTag("PickUp"))
         {
-            StartCoroutine(LerpScale(0.5f));
+            if (grow == false)
+            {
+                StartCoroutine(LerpScale(0.5f));
+            }
         }
     }
 

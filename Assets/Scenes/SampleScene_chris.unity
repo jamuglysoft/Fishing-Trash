@@ -821,6 +821,12 @@ PrefabInstance:
       propertyPath: flash_cooldown
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4366103035185867823, guid: 0b7db1de195c23447b229543c58dc43c,
+        type: 3}
+      propertyPath: laser
+      value: 
+      objectReference: {fileID: 7365449705211428228, guid: 7e90340d5884f014282859a9bbaa8e4a,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b7db1de195c23447b229543c58dc43c, type: 3}
 --- !u!1 &976759994

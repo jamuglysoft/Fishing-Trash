@@ -34,8 +34,7 @@ public class BubblesMovement : MonoBehaviour
             main.maxParticles = 5;
             emission.rateOverTime = 10;
         }
-
-        Debug.Log(main.maxParticles);
+        
 
     }
 }

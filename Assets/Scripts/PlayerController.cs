@@ -34,6 +34,15 @@ public class PlayerController : MonoBehaviour
             sprite.flipX = false;
         }
 
+        if(rigid_body.velocity.x!=0)
+        {
+            anim.SetBool("Moving", true);
+        }
+        else if(rigid_body.velocity.y==0)
+        {
+            anim.SetBool("Moving", false);
+        }
+
     }
 
     private void FixedUpdate()

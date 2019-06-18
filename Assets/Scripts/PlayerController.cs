@@ -72,15 +72,12 @@ public class PlayerController : MonoBehaviour
                 if (axis_x != 0 || axis_y != 0)
                 {
                     player_state = PlayerStates.MOVE;
-                    rigid_body.bodyType = RigidbodyType2D.Dynamic;
                 }
                 break;
             case PlayerStates.MOVE:
                 if (axis_x == 0 && axis_y == 0)
                 {
                     player_state = PlayerStates.IDLE;
-                    rigid_body.bodyType = RigidbodyType2D.Static;
-
                 }
                 break;
             default:
@@ -93,6 +90,7 @@ public class PlayerController : MonoBehaviour
         switch (player_state)
         {
             case PlayerStates.IDLE:
+                rigid_body.velocity = new Vector2(axis_x * water_friction, axis_y * water_friction);
                 break;
             case PlayerStates.MOVE:
                 rigid_body.velocity = new Vector2(axis_x * speed * water_friction, axis_y * speed * water_friction);

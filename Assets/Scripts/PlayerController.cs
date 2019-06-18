@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    enum PlayerStates
+    public enum PlayerStates
     {
         IDLE = 1,
         MOVE = 2,
@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 flash_axis;
     private float flash_time = 0.0F;
 
-    private PlayerStates player_state = PlayerStates.IDLE;
+    public PlayerStates player_state = PlayerStates.IDLE;
 
     private Animator anim;
     private Rigidbody2D rigid_body;
@@ -136,7 +136,6 @@ public class PlayerController : MonoBehaviour
             default:
                 break;
         }
-        Debug.Log(rigid_body.velocity);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

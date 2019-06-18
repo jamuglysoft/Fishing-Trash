@@ -24,22 +24,21 @@ public class Trash : MonoBehaviour
             rotation_angle *= -1;
         }
 
-        //StartCoroutine("Fade");
+        StartCoroutine("Fade");
     }
 
     // Update is called once per frame
     void Update()
     {
         transform.Translate(direction * speed * Time.deltaTime);
-
-        if (transform.position.y <= spawn.rect.yMin || transform.position.y >= spawn.rect.yMax)
-        {
-            direction.y *= -1;
-        }
-        if(transform.position.x <= spawn.rect.xMin || transform.position.x >= spawn.rect.xMax)
-        {
-            direction.x *= -1;
-        }
+        //if (transform.position.y <= spawn.rect.yMin || transform.position.y >= spawn.rect.yMax)
+        //{
+        //    direction.y *= -1;
+        //}
+        //if(transform.position.x <= spawn.rect.xMin || transform.position.x >= spawn.rect.xMax)
+        //{
+        //    direction.x *= -1;
+        //}
 
         transform.Rotate(Vector3.forward, rotation_angle * Time.deltaTime);
     }
@@ -50,6 +49,22 @@ public class Trash : MonoBehaviour
         {
             transform.localScale = new Vector3(i, i, 1);
             yield return null;
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("MapLimit"))
+        {
+            direction = -transform.position;
+            direction.Normalize();
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("MapLimit"))
+        {
+            direction = -transform.position;
+            direction.Normalize();
         }
     }
 }

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Scenes/SampleScene.unity.meta
 guid: 951e4ff56676bb243bd3762b935eb7ec
+=======
+guid: 50cce8e9949cc9c4d80463cdc988dcd9
+>>>>>>> ca1d6b76f7cb13198edf87a5cfd3551a3600cfd7:Assets/Scenes/SampleScene.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

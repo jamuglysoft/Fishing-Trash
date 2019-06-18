@@ -26,7 +26,7 @@ public class TrashManager : MonoBehaviour
             instance.transform.position = new Vector3(
                 Random.Range(area_spawn.rect.xMin, area_spawn.rect.xMax), 
                 Random.Range(area_spawn.rect.yMin, area_spawn.rect.yMax), 
-                instance.transform.position.z);
+                instance.transform.position.z) + area_spawn.transform.position;
             time = Time.realtimeSinceStartup;
         }
     }

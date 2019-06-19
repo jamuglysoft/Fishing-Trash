@@ -8,6 +8,7 @@ public class Jellyfish : MonoBehaviour
     public float min_up = -1f;
     private bool go_up = true;
     public float speed = 1f;
+    public int life = 0;
 
     public Transform player;
     private Vector3 to_go;
@@ -42,5 +43,17 @@ public class Jellyfish : MonoBehaviour
 
         to_go = player.position - transform.position;
         transform.Translate(to_go.normalized * 0.02f);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Laser"))
+        {
+            life-=collision.gameObject.GetComponent<laser>().damage;
+            if (life <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 }

@@ -1494,8 +1494,8 @@ MonoBehaviour:
   obj: {fileID: 36212261084985308, guid: d9897782c8d53b140ab5d18c6327e17e, type: 3}
   time_to_spawn: 0.5
   first_spawn: 5
-  max_trash: 1
-  trash_collected: {fileID: 0}
+  max_trash: 20
+  trash_collected: {fileID: 1598055312}
 --- !u!224 &996369554
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1512,8 +1512,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8.761, y: 2.922}
-  m_SizeDelta: {x: 6.16, y: 6.336}
+  m_AnchoredPosition: {x: 8.5, y: 6.78}
+  m_SizeDelta: {x: 59.16, y: 24.04}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1254474140
 GameObject:
@@ -1983,6 +1983,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1598055312 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1579896340305089133, guid: 0b7db1de195c23447b229543c58dc43c,
+    type: 3}
+  m_PrefabInstance: {fileID: 236692561}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2925bde6858be640994125ee916023c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1702562922
 GameObject:
   m_ObjectHideFlags: 0
@@ -2841,7 +2853,7 @@ PrefabInstance:
     - target: {fileID: 6684963122691771795, guid: 1abd63365109a8049bc5e5332bd73982,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6684963122691771795, guid: 1abd63365109a8049bc5e5332bd73982,
         type: 3}

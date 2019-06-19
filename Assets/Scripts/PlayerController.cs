@@ -44,6 +44,8 @@ public class PlayerController : MonoBehaviour
 
     private bool grow = false;
 
+    bool m_isAxisInUse = false;
+
     public GameObject laser;
 
     // Start is called before the first frame update
@@ -58,12 +60,22 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        Debug.Log(Input.GetAxisRaw("Fire1"));
+        Debug.Log(m_isAxisInUse);
+        if (Input.GetAxisRaw("Fire1") != 0f)
         {
-            GameObject instant = Instantiate(laser);
-            instant.transform.position = transform.position+transform.right*0.75f;
-            instant.transform.up = transform.right;
-            AudioScript.PlaySound("laser");
+            if (m_isAxisInUse == false)
+            {
+                GameObject instant = Instantiate(laser);
+                instant.transform.position = transform.position + transform.right * 0.75f;
+                instant.transform.up = transform.right;
+                AudioScript.PlaySound("laser");
+                m_isAxisInUse = true;
+            }
+        }
+        if (Input.GetAxisRaw("Fire1") == 0f)
+        {
+            m_isAxisInUse = false;
         }
 
         anim.SetInteger("State", (int)player_state);

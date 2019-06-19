@@ -29,6 +29,8 @@ public class TrashManager : MonoBehaviour
     public Camera cam;
     [HideInInspector] public int trash_spawned = 0;
 
+    private bool is_spawned_bar = false;
+
     private void Start()
     {
         current_bar = bars[0];
@@ -77,21 +79,30 @@ public class TrashManager : MonoBehaviour
         if (!bars_done && current_bar.TrashPicked())
         {
             NextBar();
+            is_spawned_bar = false;
         }
-        if (current_bar.IsMiddle())
+        if (current_bar.IsMiddle() && !is_spawned_bar)
+        {
             MiddleEvents();
+            is_spawned_bar = true;
+        }
     }
     public void MiddleEvents()
     {
         if (current_bar == bars[0])
         {
             Instantiate(jelly_spawner);
+            AudioSource.Stop();
             AudioSource.clip = song2;
+            AudioSource.Play();
         }
         else if (current_bar == bars[1])
         {
-            //posar spawn sharks 
+            //posar spawn sharks
             Instantiate(shark);
+            AudioSource.Stop();
+            AudioSource.clip = song3;
+            AudioSource.Play();
         }
     }
     public void NextBar()
@@ -112,7 +123,9 @@ public class TrashManager : MonoBehaviour
         else if (current_bar == bars[2])
         {
             //boss
-
+            AudioSource.Stop();
+            AudioSource.clip = song4;
+            AudioSource.Play();
             bars_done = true;
         }
     }

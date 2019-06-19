@@ -97,7 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max_up: 1
   min_up: -1
-  speed: 1
+  speed: 0.2
   life: 1
   player: {fileID: 0}
 --- !u!95 &3072277817025829069

@@ -21,6 +21,7 @@ public class JellySpawner : MonoBehaviour
     {
         time = Time.realtimeSinceStartup;
         area_spawn = GetComponent<RectTransform>();
+        camera = GameObject.FindGameObjectWithTag("MainCamera");
 
         for (int i = 0; i < first_spawn; i++)
             SpawnJelly();

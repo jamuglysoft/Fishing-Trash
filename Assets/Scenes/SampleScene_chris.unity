@@ -1076,7 +1076,7 @@ PrefabInstance:
     - target: {fileID: 411107784758158960, guid: 02395d3f1a0c4754d9bd3908a0eea6a2,
         type: 3}
       propertyPath: trashes_to_fill
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02395d3f1a0c4754d9bd3908a0eea6a2, type: 3}
@@ -1755,12 +1755,12 @@ PrefabInstance:
     - target: {fileID: 4366103035185867823, guid: 0b7db1de195c23447b229543c58dc43c,
         type: 3}
       propertyPath: flash_force.x
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4366103035185867823, guid: 0b7db1de195c23447b229543c58dc43c,
         type: 3}
       propertyPath: flash_force.y
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4366103035185867823, guid: 0b7db1de195c23447b229543c58dc43c,
         type: 3}
@@ -1770,12 +1770,17 @@ PrefabInstance:
     - target: {fileID: 4366103035185867823, guid: 0b7db1de195c23447b229543c58dc43c,
         type: 3}
       propertyPath: flash_cooldown
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4366103035185867823, guid: 0b7db1de195c23447b229543c58dc43c,
         type: 3}
       propertyPath: seconds_between_laser
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4366103035185867823, guid: 0b7db1de195c23447b229543c58dc43c,
+        type: 3}
+      propertyPath: ability2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8086534809642178079, guid: 0b7db1de195c23447b229543c58dc43c,
         type: 3}
@@ -1796,11 +1801,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.x
       value: 0.5317857
-      objectReference: {fileID: 0}
-    - target: {fileID: 4366103035185867821, guid: 0b7db1de195c23447b229543c58dc43c,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b7db1de195c23447b229543c58dc43c, type: 3}
@@ -1975,7 +1975,7 @@ GameObject:
   - component: {fileID: 1225348289}
   m_Layer: 0
   m_Name: Colliders
-  m_TagString: MapLimit
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2918,7 +2918,7 @@ PrefabInstance:
     - target: {fileID: 411107784758158960, guid: 02395d3f1a0c4754d9bd3908a0eea6a2,
         type: 3}
       propertyPath: trashes_to_fill
-      value: 15
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02395d3f1a0c4754d9bd3908a0eea6a2, type: 3}
@@ -4242,7 +4242,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8.5, y: -23.2}
+  m_AnchoredPosition: {x: 8.5, y: -19.1}
   m_SizeDelta: {x: 42.15, y: 11.24}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &2050905691
@@ -4699,7 +4699,7 @@ PrefabInstance:
     - target: {fileID: 411107784758158960, guid: 02395d3f1a0c4754d9bd3908a0eea6a2,
         type: 3}
       propertyPath: trashes_to_fill
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02395d3f1a0c4754d9bd3908a0eea6a2, type: 3}

@@ -1732,6 +1732,11 @@ PrefabInstance:
       propertyPath: text_trash
       value: 
       objectReference: {fileID: 1802125757}
+    - target: {fileID: 1579896340305089133, guid: 0b7db1de195c23447b229543c58dc43c,
+        type: 3}
+      propertyPath: text_trash
+      value: 
+      objectReference: {fileID: 1802125757}
     - target: {fileID: 4366103035185867820, guid: 0b7db1de195c23447b229543c58dc43c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1787,11 +1792,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1579896340305089133, guid: 0b7db1de195c23447b229543c58dc43c,
-        type: 3}
-      propertyPath: text_trash
-      value: 
-      objectReference: {fileID: 1802125757}
     - target: {fileID: 4366103035185867823, guid: 0b7db1de195c23447b229543c58dc43c,
         type: 3}
       propertyPath: flash_force.x
@@ -1810,6 +1810,11 @@ PrefabInstance:
     - target: {fileID: 4366103035185867823, guid: 0b7db1de195c23447b229543c58dc43c,
         type: 3}
       propertyPath: flash_cooldown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4366103035185867823, guid: 0b7db1de195c23447b229543c58dc43c,
+        type: 3}
+      propertyPath: seconds_between_laser
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

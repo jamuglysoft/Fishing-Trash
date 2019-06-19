@@ -113,13 +113,17 @@ public class TrashManager : MonoBehaviour
     {
         if (current_bar == bars[0])
         {
-            Instantiate(ability1);
+            GameObject inst = Instantiate(ability1);
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            inst.transform.position = new Vector3(player.transform.position.x + 5, player.transform.position.y, player.transform.position.z);
             StartCoroutine(cameraJa(7f));
             current_bar = bars[1];
         }
         else if (current_bar == bars[1])
         {
-            Instantiate(ability2);
+            GameObject inst = Instantiate(ability2);
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            inst.transform.position = new Vector3(player.transform.position.x + 5, player.transform.position.y, player.transform.position.z);
             Instantiate(big_trash_manager);
             StartCoroutine(cameraJa(8f));
             current_bar = bars[2];

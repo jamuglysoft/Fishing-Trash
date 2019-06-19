@@ -38,7 +38,7 @@ public class Ability2 : MonoBehaviour
 
     IEnumerator Fade()
     {
-        for (float i = 0; i <= 2.5f; i += 0.1f)
+        for (float i = 0; i <= 3.5f; i += 0.1f)
         {
             transform.localScale = new Vector3(i, i, 1);
             yield return null;

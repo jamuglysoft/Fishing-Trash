@@ -52,7 +52,7 @@ public class Jellyfish : MonoBehaviour
             }
 
             to_go = player.position - transform.position;
-            transform.Translate(to_go.normalized * 0.02F);
+            transform.Translate(to_go.normalized * 2f * Time.deltaTime);
 
         }
         else

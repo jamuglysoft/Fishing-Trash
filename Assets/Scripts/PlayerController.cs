@@ -163,7 +163,7 @@ public class PlayerController : MonoBehaviour
                 break;
             case PlayerStates.DEAD:
                 rigid_body.gravityScale = 2;
-                if (Time.realtimeSinceStartup - time_to_die >= 5 && dead)
+                if (Time.realtimeSinceStartup - time_to_die >= 3 && dead)
                 {
                     SceneManager.LoadScene(("MainMenu"), LoadSceneMode.Single);
                 }

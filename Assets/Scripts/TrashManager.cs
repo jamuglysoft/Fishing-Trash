@@ -27,6 +27,8 @@ public class TrashManager : MonoBehaviour
     public AudioClip song3;
     public AudioClip song4;
 
+    private PauseMenu pause;
+
     public Camera cam;
     [HideInInspector] public int trash_spawned = 0;
 
@@ -45,25 +47,26 @@ public class TrashManager : MonoBehaviour
         for (int i = 0; i < first_spawn; i++)
             SpawnTrash();
 
-       
+        GameObject canvas = GameObject.Find("Canvas");
+        pause = canvas.GetComponent<PauseMenu>();
     }
     // Update is called once per frame
     void Update()
     {
-
-        if(Time.realtimeSinceStartup - time >= time_to_spawn && trash_spawned - trash_collected.number_trash <= max_trash)
-        {
-            if (!obj.CompareTag("BigTrash") && trash_spawned - trash_collected.number_trash <= max_trash)
+        if (!pause.GetPause())
+            if (Time.realtimeSinceStartup - time >= time_to_spawn && trash_spawned - trash_collected.number_trash <= max_trash)
             {
-                SpawnTrash();
-                time = Time.realtimeSinceStartup;
+                if (!obj.CompareTag("BigTrash") && trash_spawned - trash_collected.number_trash <= max_trash)
+                {
+                    SpawnTrash();
+                    time = Time.realtimeSinceStartup;
+                }
+                else if (trash_spawned < max_trash)
+                {
+                    SpawnTrash();
+                    time = Time.realtimeSinceStartup;
+                }
             }
-            else if (trash_spawned < max_trash)
-            {
-                SpawnTrash();
-                time = Time.realtimeSinceStartup;
-            }
-        }
     }
 
     private void SpawnTrash()

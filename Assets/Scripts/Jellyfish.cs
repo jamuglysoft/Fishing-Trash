@@ -19,7 +19,10 @@ public class Jellyfish : MonoBehaviour
     {
         init_pos = transform.position;
     }
-
+    ~Jellyfish()
+    {
+        GameObject.Find("JellySpawner").GetComponent<JellySpawner>().active_jelly--;
+    }
     // Update is called once per frame
     void Update()
     {

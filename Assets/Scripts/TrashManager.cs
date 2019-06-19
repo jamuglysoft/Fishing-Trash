@@ -15,6 +15,7 @@ public class TrashManager : MonoBehaviour
     public List<Bar> bars = new List<Bar>();
     private Bar current_bar;
     private bool bars_done = false;
+    public GameObject jelly_spawner;
     // Start is called before the first frame update
     void Start()
     {
@@ -59,8 +60,7 @@ public class TrashManager : MonoBehaviour
     {
         if (current_bar == bars[0])
         {
-            //posar el spawn de medusas
-
+            Instantiate(jelly_spawner);
         }
         else if (current_bar == bars[1])
         {

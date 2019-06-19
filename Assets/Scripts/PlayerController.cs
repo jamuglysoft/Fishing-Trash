@@ -179,7 +179,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("PickUp"))
         {
             AudioScript.PlaySound("pick_trash");
-            if (grow == false)
+            if (grow == false&&dead==false)
             {
                 StartCoroutine(LerpScale(0.5f));
             }

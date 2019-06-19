@@ -8,13 +8,17 @@ public class BubblesOver : MonoBehaviour
     public GameObject playBubble;
     private GameObject buble;
 
-    private void Start()
-    {
-        //GetComponent<Button>().Select();
-
-
-    }
-
+    //private void Update()
+    //{
+    //    if (IsHighlighted())
+    //    {
+    //        SetBubble();
+    //    }
+    //    else
+    //    {
+    //        DestroyBubble();
+    //    }
+    //}
 
     public void SetBubble()
     {

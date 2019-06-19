@@ -14,11 +14,14 @@ public class Jellyfish : MonoBehaviour
     private Vector3 to_go;
 
     private Vector3 init_pos;
+    private bool die = false;
+    private SpriteRenderer sprite_render;
 
     // Start is called before the first frame update
     void Start()
     {
         init_pos = transform.position;
+        sprite_render = GetComponent<SpriteRenderer>();
     }
     ~Jellyfish()
     {
@@ -27,21 +30,29 @@ public class Jellyfish : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (go_up)
+        if (!die)
         {
-            transform.Translate(Vector3.up * speed * Time.deltaTime);
-            if (transform.position.y >= init_pos.y + max_up)
-                go_up = !go_up;
+            if (go_up)
+            {
+                transform.Translate(Vector3.up * speed * Time.deltaTime);
+                if (transform.position.y >= init_pos.y + max_up)
+                    go_up = !go_up;
+            }
+            else
+            {
+                transform.Translate(Vector3.down * speed * Time.deltaTime);
+                if (transform.position.y <= init_pos.y + min_up)
+                    go_up = !go_up;
+            }
+
+            to_go = player.position - transform.position;
+            transform.Translate(to_go.normalized * 0.02f);
         }
         else
         {
-            transform.Translate(Vector3.down * speed * Time.deltaTime);
-            if (transform.position.y <= init_pos.y + min_up)
-                go_up = !go_up;
+            transform.position = new Vector3(transform.position.x, transform.position.y - 20 * Time.deltaTime);
         }
-
-        to_go = player.position - transform.position;
-        transform.Translate(to_go.normalized * 0.02f);
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -51,8 +62,19 @@ public class Jellyfish : MonoBehaviour
             life-=collision.gameObject.GetComponent<laser>().damage;
             if (life <= 0)
             {
-                Destroy(gameObject);
+                die = true;
+                StartCoroutine(Die());
             }
+        }
+    }
+    IEnumerator Die()
+    {
+        float alpha = 1.0F;
+        for (; ; )
+        {
+            alpha -= 0.05F;
+            sprite_render.color = new Color(sprite_render.color.r, sprite_render.color.g, sprite_render.color.b, alpha);
+            yield return null;
         }
     }
 }

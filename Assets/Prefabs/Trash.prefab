@@ -99,6 +99,14 @@ MonoBehaviour:
   rotation_angle: 0
   min_angle_speed: 0.5
   max_angle_speed: 3
+  basurillas:
+  - {fileID: 21300000, guid: 9e7941557eef16c46b57b19e4865e169, type: 3}
+  - {fileID: 21300000, guid: f890342ed33dc9e4a811dfe0114985da, type: 3}
+  - {fileID: 21300000, guid: e56adb1f4bd6a2e428d5e149ef1f0645, type: 3}
+  - {fileID: 21300000, guid: 43e55ba7ea9b0fe42a1465701d322408, type: 3}
+  - {fileID: 21300000, guid: b923e19076b6d89419b8aebbbe723532, type: 3}
+  - {fileID: 21300000, guid: a55218ecefba568488ba28d47d56ae44, type: 3}
+  - {fileID: 21300000, guid: b5f49f838cd80bd4a8f0d519590ea6fc, type: 3}
 --- !u!61 &1353970811
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -116,7 +124,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6, y: 6}
+    oldSize: {x: 2.69, y: 2.37}
     newSize: {x: 6, y: 6}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

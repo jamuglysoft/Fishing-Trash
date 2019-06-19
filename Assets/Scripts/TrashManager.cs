@@ -18,11 +18,23 @@ public class TrashManager : MonoBehaviour
     public GameObject jelly_spawner;
     public GameObject ability1;
     public GameObject ability2;
+
+    private AudioSource AudioSource;
+
+    public AudioClip song1;
+    public AudioClip song2;
+    public AudioClip song3;
+    public AudioClip song4;
+
     // Start is called before the first frame update
     void Start()
     {
         time = Time.realtimeSinceStartup;
         area_spawn = GetComponent<RectTransform>();
+
+        AudioSource = GetComponent<AudioSource>();
+        AudioSource.clip = song1;
+        AudioSource.Play();
 
         for (int i = 0; i < first_spawn; i++)
             SpawnTrash();
@@ -63,6 +75,7 @@ public class TrashManager : MonoBehaviour
         if (current_bar == bars[0])
         {
             Instantiate(jelly_spawner);
+            AudioSource.clip = song2;
         }
         else if (current_bar == bars[1])
         {

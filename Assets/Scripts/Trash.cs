@@ -11,6 +11,10 @@ public class Trash : MonoBehaviour
     public float min_angle_speed = 0.5f;
     public float max_angle_speed = 3f;
 
+    SpriteRenderer sprite;
+
+    public Sprite[] basurillas;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +26,10 @@ public class Trash : MonoBehaviour
         {
             rotation_angle *= -1;
         }
+
+        int id = Random.Range(0, basurillas.Length);
+        sprite = GetComponent<SpriteRenderer>();
+        sprite.sprite = basurillas[id];
 
         StartCoroutine("Fade");
     }

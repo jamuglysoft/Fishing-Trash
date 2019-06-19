@@ -12,7 +12,7 @@ public class JellySpawner : MonoBehaviour
     public int first_spawn = 5;
     int jelly_spawned = 0;
     public int max_jelly = 1;
-    public GameObject camera;
+    GameObject camera;
     [HideInInspector]
     public int active_jelly = 0;
 
@@ -22,9 +22,8 @@ public class JellySpawner : MonoBehaviour
         time = Time.realtimeSinceStartup;
         area_spawn = GetComponent<RectTransform>();
         camera = GameObject.FindGameObjectWithTag("MainCamera");
-
-        for (int i = 0; i < first_spawn; i++)
-            SpawnJelly();
+        StartCoroutine("Spawn");
+        
     }
 
     // Update is called once per frame
@@ -49,6 +48,15 @@ public class JellySpawner : MonoBehaviour
             pos.z);
         jelly_spawned++;
         active_jelly++;
+    }
+
+    IEnumerator Spawn()
+    {
+        for (int i = 0; i < first_spawn; i++)
+        {
+            SpawnJelly();
+            yield return null;
+        }
     }
 }
 

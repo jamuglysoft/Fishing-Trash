@@ -17,6 +17,7 @@ public class TrashManager : MonoBehaviour
     public GameObject jelly_spawner;
     public GameObject ability1;
     public GameObject ability2;
+    public GameObject shark;
     public GameObject big_trash_manager;
     private AudioSource AudioSource;
 
@@ -24,11 +25,14 @@ public class TrashManager : MonoBehaviour
     public AudioClip song2;
     public AudioClip song3;
     public AudioClip song4;
+
+    public Camera cam;
     [HideInInspector] public int trash_spawned = 0;
+
+    private bool is_spawned_bar = false;
 
     private void Start()
     {
-        Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAA");
         current_bar = bars[0];
         time = Time.realtimeSinceStartup;
         area_spawn = GetComponent<RectTransform>();
@@ -75,9 +79,13 @@ public class TrashManager : MonoBehaviour
         if (!bars_done && current_bar.TrashPicked())
         {
             NextBar();
+            is_spawned_bar = false;
         }
-        if (current_bar.IsMiddle())
+        if (current_bar.IsMiddle() && !is_spawned_bar)
+        {
             MiddleEvents();
+            is_spawned_bar = true;
+        }
     }
     public void MiddleEvents()
     {
@@ -90,7 +98,8 @@ public class TrashManager : MonoBehaviour
         }
         else if (current_bar == bars[1])
         {
-            //posar spawn sharks 
+            //posar spawn sharks
+            Instantiate(shark);
             AudioSource.Stop();
             AudioSource.clip = song3;
             AudioSource.Play();
@@ -108,6 +117,7 @@ public class TrashManager : MonoBehaviour
         {
             Instantiate(ability2);
             Instantiate(big_trash_manager);
+            cam.orthographicSize = 8f;
             current_bar = bars[2];
         }
         else if (current_bar == bars[2])

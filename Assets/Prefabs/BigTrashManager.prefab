@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &242755726852303895
+--- !u!1 &6106224494180654467
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 242755726852303893}
-  - component: {fileID: 1876985785}
+  - component: {fileID: 6106224494180654465}
+  - component: {fileID: 7149936037467385767}
   m_Layer: 0
   m_Name: BigTrashManager
   m_TagString: Untagged
@@ -17,13 +17,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &242755726852303893
+--- !u!224 &6106224494180654465
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 242755726852303895}
+  m_GameObject: {fileID: 6106224494180654467}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -33,38 +33,23 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.119, y: 0.086}
-  m_SizeDelta: {x: 46.109, y: 12.008}
+  m_AnchoredPosition: {x: 0.86, y: 2.22}
+  m_SizeDelta: {x: 43.78, y: 14.95}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1876985785
+--- !u!114 &7149936037467385767
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 242755726852303895}
+  m_GameObject: {fileID: 6106224494180654467}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6046b3b6699621b42b135df5ee835953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 7199277054786272904, guid: 16b06335e8893ec419776e555c376f52, type: 3}
-<<<<<<< HEAD
-  time_to_spawn: 0.5
-  first_spawn: 5
-  max_trash: 8
-=======
-  time_to_spawn: 1
-  first_spawn: 0
-  max_trash: 3
->>>>>>> 2ae47d656a3870233fc707e222c3252b891cf332
+  time_to_spawn: 15
+  first_spawn: 2
+  max_trash: 4
   trash_collected: {fileID: 0}
-  bars: []
-  jelly_spawner: {fileID: 0}
-  ability1: {fileID: 0}
-  ability2: {fileID: 0}
-  song1: {fileID: 0}
-  song2: {fileID: 0}
-  song3: {fileID: 0}
-  song4: {fileID: 0}
-  trash_spawned: 0

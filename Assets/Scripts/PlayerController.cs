@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log(Input.GetAxisRaw("Fire1"));
         Debug.Log(m_isAxisInUse);
-        if (Input.GetAxisRaw("Fire1") != 0f)
+        if (Input.GetAxisRaw("Fire1") != 0f && ability2)
         {
             if (m_isAxisInUse == false)
             {

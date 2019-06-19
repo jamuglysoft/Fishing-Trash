@@ -9,6 +9,7 @@ TagManager:
   - Laser
   - Enemy
   - Ability1
+  - Ability2
   layers:
   - Default
   - TransparentFX

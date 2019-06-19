@@ -77,8 +77,13 @@ public class Jellyfish : MonoBehaviour
         for (; ; )
         {
             alpha -= 0.05F;
+            if (alpha <= 0)
+            {
+                break;
+            }
             sprite_render.color = new Color(sprite_render.color.r, sprite_render.color.g, sprite_render.color.b, alpha);
             yield return null;
         }
+        Destroy(this);
     }
 }

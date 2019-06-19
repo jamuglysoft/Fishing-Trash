@@ -7,6 +7,8 @@ public class Shark : MonoBehaviour
     public float speed = 5f;
     public int life = 0;
 
+    public GameObject shark;
+
     BoxCollider2D a;
     BoxCollider2D b;
     BoxCollider2D c;
@@ -32,6 +34,7 @@ public class Shark : MonoBehaviour
         if(collision.gameObject.CompareTag("SharkCollider") && (collision == a || collision == b || collision == c)){
             transform.localScale = new Vector3(transform.localScale.x*-1, 1, 1);
             speed *= -1;
+            transform.position = new Vector3(transform.position.x, Random.Range(-3, 16), transform.position.z);
         }
 
         else if (collision.gameObject.CompareTag("Laser"))
@@ -39,7 +42,10 @@ public class Shark : MonoBehaviour
             life -= collision.gameObject.GetComponent<laser>().damage;
             if (life <= 0)
             {
+                GameObject instance = Instantiate(shark);
+                instance.transform.position = new Vector3(-80, 0, 0);
                 Destroy(gameObject);
+
             }
         }
     }

@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class PickUp : MonoBehaviour
 {
-    public Text text_trash;
     public int number_trash;
    
 
@@ -29,7 +28,6 @@ public class PickUp : MonoBehaviour
             GameObject.Find("TrashManager").GetComponent<TrashManager>().UpdateBar();
             Destroy(collision.gameObject);
             number_trash++;
-            text_trash.text = "Trash: " + number_trash.ToString();
             
         }
         if (collision.CompareTag("Ability1"))

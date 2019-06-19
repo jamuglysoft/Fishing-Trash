@@ -29,6 +29,7 @@ public class Trash : MonoBehaviour
 
         int id = Random.Range(0, basurillas.Length);
         sprite = GetComponent<SpriteRenderer>();
+        Debug.Log(id);
         sprite.sprite = basurillas[id];
 
         StartCoroutine("Fade");

@@ -46,6 +46,11 @@ public class JellySpawner : MonoBehaviour
             pos.x,
             pos.y,
             pos.z);
+        Vector3 viewPos = GameObject.Find("Main Camera").GetComponent<Camera>().WorldToViewportPoint(instance.transform.position);
+        if (viewPos.x >= 0 && viewPos.x <= 1 && viewPos.y >= 0 && viewPos.y <= 1 && viewPos.z > 0)
+        {
+            DestroyImmediate(instance);
+        }
         jelly_spawned++;
         active_jelly++;
     }

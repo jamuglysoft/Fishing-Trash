@@ -20,8 +20,7 @@ public class Ability2 : MonoBehaviour
         buble_ability_sfx_source.clip = buble_ability_sfx;
 
         //transform.position = new Vector3(0,0,0);
-        direction = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
-        direction.Normalize();
+        direction = new Vector3(0, -1, 0);
         speed = Random.Range(0.1f, 0.7f);
         rotation_angle = Random.Range(min_angle_speed, max_angle_speed);
         if (Random.Range(0, 1) == 1)
@@ -53,8 +52,7 @@ public class Ability2 : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("MapLimit"))
         {
-            direction = -transform.position;
-            direction.Normalize();
+            speed *= -1;
         }
 
     }

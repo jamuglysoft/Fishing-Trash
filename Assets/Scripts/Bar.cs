@@ -11,13 +11,13 @@ public class Bar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        divided_parts = 1f / (float)trashes_to_fill;
+        divided_parts = 5.341226f / (float)trashes_to_fill;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public bool TrashPicked()
@@ -30,7 +30,7 @@ public class Bar : MonoBehaviour
     }
     public bool IsMiddle()
     {
-        if (transform.localScale.x <= 0.5F)
+        if (transform.localScale.x <= 5.341226f/2)
             return true;
         return false;
     }

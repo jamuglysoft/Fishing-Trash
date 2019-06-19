@@ -10791,7 +10791,7 @@ MonoBehaviour:
   m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1811077691}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1372044000
@@ -10926,6 +10926,7 @@ GameObject:
   - component: {fileID: 1695184672}
   - component: {fileID: 1695184671}
   - component: {fileID: 1695184678}
+  - component: {fileID: 1695184679}
   m_Layer: 5
   m_Name: CreditsButton
   m_TagString: Untagged
@@ -11192,7 +11193,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1695184678}
+      - m_Target: {fileID: 1695184679}
         m_MethodName: GoCredits
         m_Mode: 1
         m_Arguments:
@@ -11213,8 +11214,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1695184669}
   m_CullTransparentMesh: 0
---- !u!114 &1695184678
-MonoBehaviour:
 --- !u!82 &1695184678
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11223,14 +11222,6 @@ AudioSource:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1695184669}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29abe1046292e1b4e8ac0b121f938357, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  credits: {fileID: 189471483}
-  mainmenu: {fileID: 1297254657}
-  creditsbtn: {fileID: 1695184676}
-  backbtn: {fileID: 245601905}
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5be9ee1728e4aa04cbfba1a6d225c835, type: 3}
@@ -11319,6 +11310,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1695184679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1695184669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29abe1046292e1b4e8ac0b121f938357, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  credits: {fileID: 189471483}
+  mainmenu: {fileID: 1297254657}
+  creditsbtn: {fileID: 1695184676}
+  backbtn: {fileID: 245601905}
 --- !u!1 &1811077691
 GameObject:
   m_ObjectHideFlags: 0
@@ -11336,6 +11343,7 @@ GameObject:
   - component: {fileID: 1811077699}
   - component: {fileID: 1811077698}
   - component: {fileID: 1811077700}
+  - component: {fileID: 1811077701}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -11606,8 +11614,6 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
---- !u!114 &1811077700
-MonoBehaviour:
 --- !u!82 &1811077700
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11616,14 +11622,6 @@ AudioSource:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1811077691}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29abe1046292e1b4e8ac0b121f938357, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  credits: {fileID: 0}
-  mainmenu: {fileID: 0}
-  creditsbtn: {fileID: 0}
-  backbtn: {fileID: 0}
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5be9ee1728e4aa04cbfba1a6d225c835, type: 3}
@@ -11712,6 +11710,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1811077701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811077691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29abe1046292e1b4e8ac0b121f938357, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  credits: {fileID: 0}
+  mainmenu: {fileID: 0}
+  creditsbtn: {fileID: 0}
+  backbtn: {fileID: 0}
 --- !u!1 &2006375731
 GameObject:
   m_ObjectHideFlags: 0

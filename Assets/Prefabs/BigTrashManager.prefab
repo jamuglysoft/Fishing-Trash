@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 242755726852303893}
-  - component: {fileID: 242755726852303894}
+  - component: {fileID: 1876985785}
   m_Layer: 0
   m_Name: BigTrashManager
   m_TagString: Untagged
@@ -36,7 +36,7 @@ RectTransform:
   m_AnchoredPosition: {x: 1.119, y: 0.086}
   m_SizeDelta: {x: 46.109, y: 12.008}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &242755726852303894
+--- !u!114 &1876985785
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,11 +45,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 242755726852303895}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 298e17bad5059e94290e4e2ddd0ad514, type: 3}
+  m_Script: {fileID: 11500000, guid: 6046b3b6699621b42b135df5ee835953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 7199277054786272904, guid: 16b06335e8893ec419776e555c376f52, type: 3}
-  time_to_spawn: 15
-  first_spawn: 0
-  max_trash: 3
+  time_to_spawn: 0.5
+  first_spawn: 5
+  max_trash: 8
   trash_collected: {fileID: 0}

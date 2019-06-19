@@ -18,17 +18,19 @@ public class TrashManager : MonoBehaviour
     public GameObject jelly_spawner;
     public GameObject ability1;
     public GameObject ability2;
-
+    public GameObject big_trash_manager;
     private AudioSource AudioSource;
 
     public AudioClip song1;
     public AudioClip song2;
     public AudioClip song3;
     public AudioClip song4;
-
+    private bool first_time = true;
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
+        Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAA");
+        current_bar = bars[0];
         time = Time.realtimeSinceStartup;
         area_spawn = GetComponent<RectTransform>();
 
@@ -39,12 +41,12 @@ public class TrashManager : MonoBehaviour
         for (int i = 0; i < first_spawn; i++)
             SpawnTrash();
 
-        current_bar = bars[0];
+       
     }
-
     // Update is called once per frame
     void Update()
     {
+
         if(Time.realtimeSinceStartup - time >= time_to_spawn && trash_spawned - trash_collected.number_trash <= max_trash)
         {
             SpawnTrash();
@@ -94,7 +96,7 @@ public class TrashManager : MonoBehaviour
         else if (current_bar == bars[1])
         {
             Instantiate(ability2);
-
+            Instantiate(big_trash_manager);
             current_bar = bars[2];
         }
         else if (current_bar == bars[2])

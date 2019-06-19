@@ -16,7 +16,6 @@ public class BigTrash : Trash
                 inst = Instantiate(little_trash);
                 inst.transform.position = transform.position;
             }
-            GetComponentInParent<TrashManager>().trash_spawned--;
             Destroy(gameObject);
         }
         else if (collision.gameObject.CompareTag("Player"))

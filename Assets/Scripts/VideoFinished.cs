@@ -13,8 +13,7 @@ public class VideoFinished : MonoBehaviour
 
     void CheckOver(UnityEngine.Video.VideoPlayer vp)
     {
-        SceneManager.LoadScene(1);
-        SceneManager.UnloadScene(0);
+        SceneManager.LoadScene("MainMenu");
     }
 
 }

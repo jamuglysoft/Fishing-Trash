@@ -114,14 +114,14 @@ public class TrashManager : MonoBehaviour
         if (current_bar == bars[0])
         {
             Instantiate(ability1);
-
+            StartCoroutine(cameraJa(7f));
             current_bar = bars[1];
         }
         else if (current_bar == bars[1])
         {
             Instantiate(ability2);
             Instantiate(big_trash_manager);
-            cam.orthographicSize = 8f;
+            StartCoroutine(cameraJa(8f));
             current_bar = bars[2];
         }
         else if (current_bar == bars[2])
@@ -132,6 +132,15 @@ public class TrashManager : MonoBehaviour
             AudioSource.Play();
             bars_done = true;
             SceneManager.LoadScene("Win", LoadSceneMode.Single);
+        }
+    }
+
+    IEnumerator cameraJa(float size)
+    {
+        for(float i = cam.orthographicSize; i < size; i += 0.02f)
+        {
+            cam.orthographicSize = i;
+            yield return null;
         }
     }
 }

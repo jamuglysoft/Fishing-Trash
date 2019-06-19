@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1170484598990731561}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.98, y: 0.27, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3.9097202, y: 3.9097202, z: 3.9097202}
   m_Children: []
   m_Father: {fileID: 0}
@@ -98,7 +98,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0.02
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -117,18 +117,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.19094002, y: 0.22674102}
+  m_Offset: {x: 0.03809023, y: 0.0997923}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.99, y: 2.34}
+    oldSize: {x: 1.3288889, y: 1.04}
     newSize: {x: 2.99, y: 2.34}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9373964, y: 0.8840822}
+  m_Size: {x: 0.6316968, y: 0.63018477}
   m_EdgeRadius: 0
 --- !u!114 &3980890568415791049
 MonoBehaviour:
@@ -147,6 +147,8 @@ MonoBehaviour:
   rotation_angle: 0
   min_angle_speed: 0.5
   max_angle_speed: 3
+  buble_ability_sfx: {fileID: 0}
+  buble_ability_sfx_source: {fileID: 0}
 --- !u!82 &8829789401633635201
 AudioSource:
   m_ObjectHideFlags: 0

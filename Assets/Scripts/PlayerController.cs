@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour
         axis_x = Input.GetAxis("Horizontal");
         axis_y = Input.GetAxis("Vertical");
 
-        if (Input.GetKeyDown(KeyCode.Joystick1Button5) && !flashing&&axis_x!=0)
+        if ((Input.GetKeyDown(KeyCode.Joystick1Button5) || Input.GetKeyDown(KeyCode.LeftShift))  && !flashing&&axis_x!=0)
         {
             player_state = PlayerStates.FLASHING;
             flash_axis = new Vector2(axis_x, axis_y);

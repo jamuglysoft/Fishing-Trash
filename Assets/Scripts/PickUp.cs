@@ -8,6 +8,8 @@ public class PickUp : MonoBehaviour
 {
     public Text text_trash;
     public int number_trash;
+    bool ability1;
+    bool ability2;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +30,17 @@ public class PickUp : MonoBehaviour
             Destroy(collision.gameObject);
             number_trash++;
             text_trash.text = "Trash: " + number_trash.ToString();
+        }
+        if (collision.CompareTag("Ability1"))
+        {
+            Destroy(collision.gameObject);
+            ability1 = true;
+        }
+        if (collision.CompareTag("Ability2"))
+        {
+            Destroy(collision.gameObject);
+            ability2 = true;
+
         }
     }
 }

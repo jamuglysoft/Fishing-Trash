@@ -35,11 +35,15 @@ public class PickUp : MonoBehaviour
         {
             Destroy(collision.gameObject);
             GameObject.Find("Player").GetComponent<PlayerController>().ability1 = true;
+            AudioScript.PlaySound("ability1");
+
         }
         if (collision.CompareTag("Ability2"))
         {
             Destroy(collision.gameObject);
             GameObject.Find("Player").GetComponent<PlayerController>().ability2 = true;
+            AudioScript.PlaySound("ability2");
+
         }
     }
 }

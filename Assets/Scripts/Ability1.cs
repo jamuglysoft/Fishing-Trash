@@ -11,9 +11,14 @@ public class Ability1 : MonoBehaviour
     public float min_angle_speed = 0.5f;
     public float max_angle_speed = 3f;
 
+    public AudioClip buble_ability_sfx;
+    public AudioSource buble_ability_sfx_source;
+
     // Start is called before the first frame update
     void Start()
-    {
+    {;
+        buble_ability_sfx_source.clip = buble_ability_sfx;
+
         //transform.position = new Vector3(0,0,0);
         direction = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
         direction.Normalize();

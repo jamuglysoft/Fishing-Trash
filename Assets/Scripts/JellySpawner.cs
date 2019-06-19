@@ -12,6 +12,7 @@ public class JellySpawner : MonoBehaviour
     public int first_spawn = 5;
     int jelly_spawned = 0;
     public int max_jelly = 1;
+    public GameObject camera;
     [HideInInspector]
     public int active_jelly = 0;
 
@@ -37,10 +38,14 @@ public class JellySpawner : MonoBehaviour
     private void SpawnJelly()
     {
         GameObject instance = Instantiate(obj, transform);
+        Vector3 pos = new Vector3(Random.Range(area_spawn.rect.xMin, area_spawn.rect.xMax),
+            Random.Range(area_spawn.rect.yMin, area_spawn.rect.yMax), instance.transform.position.z) + area_spawn.transform.position;
+        if (pos.x > camera.transform.position.x && pos.x < camera.transform.position.x + 10)
+            pos.x += 15;
         instance.transform.position = new Vector3(
-            Random.Range(area_spawn.rect.xMin, area_spawn.rect.xMax),
-            Random.Range(area_spawn.rect.yMin, area_spawn.rect.yMax),
-            instance.transform.position.z) + area_spawn.transform.position;
+            pos.x,
+            pos.y,
+            pos.z);
         jelly_spawned++;
         active_jelly++;
     }

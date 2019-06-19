@@ -1812,7 +1812,7 @@ RectTransform:
   - {fileID: 1802125756}
   - {fileID: 1381985502}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1864,6 +1864,10 @@ MonoBehaviour:
     type: 3}
   ability2: {fileID: 1170484598990731561, guid: 96f44c9cd4b123b4698f562d6e70cf88,
     type: 3}
+  song1: {fileID: 8300000, guid: 6845340168e62c4449387a6c43c903ea, type: 3}
+  song2: {fileID: 8300000, guid: a241705e2c0e2bd4386b02b95b0165ba, type: 3}
+  song3: {fileID: 8300000, guid: dbc60a77dde7cfe459d3a70a2f5c0dd1, type: 3}
+  song4: {fileID: 8300000, guid: 7851a5831b6022b45a06d76029a99d5e, type: 3}
 --- !u!224 &996369554
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1876,7 +1880,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3351,7 +3355,7 @@ Transform:
   - {fileID: 1732546501}
   - {fileID: 1355617111}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1802125755
 GameObject:

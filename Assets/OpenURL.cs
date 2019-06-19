@@ -1,9 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class OpenURL : MonoBehaviour
 {
+
+    public Sprite img_face;
+    private Sprite img_courtain;
+
+    private void Start()
+    {
+        img_courtain = GetComponent<Image>().sprite;
+    }
+
+
     public void Oriol ()
     {
         Application.OpenURL("https://github.com/OriolCS2");
@@ -28,4 +40,15 @@ public class OpenURL : MonoBehaviour
     {
         Application.OpenURL("https://github.com/VictorSegura99");
     }
+
+    public void ChangeSprite ()
+    {
+        GetComponent<Image>().sprite = img_face;
+    }
+
+    public void RechangeSprite()
+    {
+        GetComponent<Image>().sprite = img_courtain;
+    }
+
 }

@@ -9,7 +9,6 @@ public class TrashManager : MonoBehaviour
     public float time_to_spawn;
     RectTransform area_spawn;
     public int first_spawn = 5;
-    int trash_spawned = 0;
     public int max_trash = 1;
     public PickUp trash_collected;
     public List<Bar> bars = new List<Bar>();
@@ -25,8 +24,8 @@ public class TrashManager : MonoBehaviour
     public AudioClip song2;
     public AudioClip song3;
     public AudioClip song4;
-    private bool first_time = true;
-    // Start is called before the first frame update
+    [HideInInspector] public int trash_spawned = 0;
+
     private void Start()
     {
         Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAA");
@@ -49,8 +48,16 @@ public class TrashManager : MonoBehaviour
 
         if(Time.realtimeSinceStartup - time >= time_to_spawn && trash_spawned - trash_collected.number_trash <= max_trash)
         {
-            SpawnTrash();
-            time = Time.realtimeSinceStartup;
+            if (!obj.CompareTag("BigTrash") && trash_spawned - trash_collected.number_trash <= max_trash)
+            {
+                SpawnTrash();
+                time = Time.realtimeSinceStartup;
+            }
+            else if (trash_spawned < max_trash)
+            {
+                SpawnTrash();
+                time = Time.realtimeSinceStartup;
+            }
         }
     }
 

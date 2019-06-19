@@ -71,6 +71,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text_trash: {fileID: 0}
+  number_trash: 0
 --- !u!1 &4366103035185867792
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,12 +262,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a467140046e3ea849bfcb2a6a45e1a48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ability1: 0
+  ability2: 0
   flash_cooldown: 1
   flash_force: {x: 13, y: 13}
   player_state: 1
   speed: 12
   water_friction: 0.8
   rotation: 0
+  seconds_between_laser: 1
   laser: {fileID: 7365449705211428228, guid: 7e90340d5884f014282859a9bbaa8e4a, type: 3}
 --- !u!95 &4366103035185867822
 Animator:

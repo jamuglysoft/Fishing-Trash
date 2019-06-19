@@ -27,7 +27,7 @@ public class Trash : MonoBehaviour
             rotation_angle *= -1;
         }
 
-        int id = Random.Range(0, basurillas.Length);
+        int id = Random.Range(0, 6);
         sprite = GetComponent<SpriteRenderer>();
         sprite.sprite = basurillas[id];
 

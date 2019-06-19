@@ -61,13 +61,11 @@ public class TrashManager : MonoBehaviour
         {
             //posar el spawn de medusas
 
-            current_bar = bars[1];
         }
         else if (current_bar == bars[1])
         {
             //posar spawn sharks 
 
-            current_bar = bars[2];
         }
     }
     public void NextBar()

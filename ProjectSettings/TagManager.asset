@@ -10,6 +10,8 @@ TagManager:
   - Enemy
   - Ability1
   - Ability2
+  - SharkCollider
+  - BigTrash
   layers:
   - Default
   - TransparentFX

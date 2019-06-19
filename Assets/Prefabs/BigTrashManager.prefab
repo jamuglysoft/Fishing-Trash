@@ -49,7 +49,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 7199277054786272904, guid: 16b06335e8893ec419776e555c376f52, type: 3}
-  time_to_spawn: 15
+  time_to_spawn: 1
   first_spawn: 0
   max_trash: 3
   trash_collected: {fileID: 0}
+  bars: []
+  jelly_spawner: {fileID: 0}
+  ability1: {fileID: 0}
+  ability2: {fileID: 0}
+  song1: {fileID: 0}
+  song2: {fileID: 0}
+  song3: {fileID: 0}
+  song4: {fileID: 0}
+  trash_spawned: 0

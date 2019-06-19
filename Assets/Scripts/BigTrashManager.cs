@@ -26,10 +26,13 @@ public class BigTrashManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.realtimeSinceStartup - time >= time_to_spawn && trash_spawned - trash_collected.number_trash <= max_trash)
+        if (Time.realtimeSinceStartup - time >= time_to_spawn)
         {
-            SpawnTrash();
-            time = Time.realtimeSinceStartup;
+            if (trash_spawned < max_trash)
+            {
+                SpawnTrash();
+                time = Time.realtimeSinceStartup;
+            }
         }
     }
 

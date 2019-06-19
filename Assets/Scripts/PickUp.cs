@@ -26,10 +26,11 @@ public class PickUp : MonoBehaviour
     {
         if (collision.CompareTag("PickUp"))
         {
+            GameObject.Find("TrashManager").GetComponent<TrashManager>().UpdateBar();
             Destroy(collision.gameObject);
             number_trash++;
             text_trash.text = "Trash: " + number_trash.ToString();
-            GameObject.Find("TrashManager").GetComponent<TrashManager>().UpdateBar();
+            
         }
         if (collision.CompareTag("Ability1"))
         {

@@ -9,7 +9,6 @@ public class TrashManager : MonoBehaviour
     public float time_to_spawn;
     RectTransform area_spawn;
     public int first_spawn = 5;
-    int trash_spawned = 0;
     public int max_trash = 1;
     public PickUp trash_collected;
     public List<Bar> bars = new List<Bar>();
@@ -18,17 +17,19 @@ public class TrashManager : MonoBehaviour
     public GameObject jelly_spawner;
     public GameObject ability1;
     public GameObject ability2;
-
+    public GameObject big_trash_manager;
     private AudioSource AudioSource;
 
     public AudioClip song1;
     public AudioClip song2;
     public AudioClip song3;
     public AudioClip song4;
+    [HideInInspector] public int trash_spawned = 0;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
+        Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAA");
+        current_bar = bars[0];
         time = Time.realtimeSinceStartup;
         area_spawn = GetComponent<RectTransform>();
 
@@ -39,16 +40,24 @@ public class TrashManager : MonoBehaviour
         for (int i = 0; i < first_spawn; i++)
             SpawnTrash();
 
-        current_bar = bars[0];
+       
     }
-
     // Update is called once per frame
     void Update()
     {
+
         if(Time.realtimeSinceStartup - time >= time_to_spawn && trash_spawned - trash_collected.number_trash <= max_trash)
         {
-            SpawnTrash();
-            time = Time.realtimeSinceStartup;
+            if (!obj.CompareTag("BigTrash") && trash_spawned - trash_collected.number_trash <= max_trash)
+            {
+                SpawnTrash();
+                time = Time.realtimeSinceStartup;
+            }
+            else if (trash_spawned < max_trash)
+            {
+                SpawnTrash();
+                time = Time.realtimeSinceStartup;
+            }
         }
     }
 
@@ -94,7 +103,7 @@ public class TrashManager : MonoBehaviour
         else if (current_bar == bars[1])
         {
             Instantiate(ability2);
-
+            Instantiate(big_trash_manager);
             current_bar = bars[2];
         }
         else if (current_bar == bars[2])

@@ -5,6 +5,8 @@ using UnityEngine;
 public class Shark : MonoBehaviour
 {
     public float speed = 5f;
+    public int life = 0;
+
     BoxCollider2D a;
     BoxCollider2D b;
     BoxCollider2D c;
@@ -30,6 +32,15 @@ public class Shark : MonoBehaviour
         if(collision.gameObject.CompareTag("SharkCollider") && (collision == a || collision == b || collision == c)){
             transform.localScale = new Vector3(transform.localScale.x*-1, 1, 1);
             speed *= -1;
+        }
+
+        else if (collision.gameObject.CompareTag("Laser"))
+        {
+            life -= collision.gameObject.GetComponent<laser>().damage;
+            if (life <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

@@ -65,8 +65,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(Input.GetAxisRaw("Fire1"));
-        Debug.Log(m_isAxisInUse);
         if (Input.GetAxisRaw("Fire1") != 0f && 
             ability2&& m_isAxisInUse == false && 
             (Time.realtimeSinceStartup - laser_timer >= seconds_between_laser))

@@ -84,12 +84,16 @@ public class TrashManager : MonoBehaviour
         if (current_bar == bars[0])
         {
             Instantiate(jelly_spawner);
+            AudioSource.Stop();
             AudioSource.clip = song2;
+            AudioSource.Play();
         }
         else if (current_bar == bars[1])
         {
             //posar spawn sharks 
-
+            AudioSource.Stop();
+            AudioSource.clip = song3;
+            AudioSource.Play();
         }
     }
     public void NextBar()
@@ -109,7 +113,9 @@ public class TrashManager : MonoBehaviour
         else if (current_bar == bars[2])
         {
             //boss
-
+            AudioSource.Stop();
+            AudioSource.clip = song4;
+            AudioSource.Play();
             bars_done = true;
         }
     }

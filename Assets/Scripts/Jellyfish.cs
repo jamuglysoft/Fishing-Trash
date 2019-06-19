@@ -18,6 +18,7 @@ public class Jellyfish : MonoBehaviour
     void Start()
     {
         init_pos = transform.position;
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
     ~Jellyfish()
     {

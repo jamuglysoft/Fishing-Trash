@@ -48,9 +48,6 @@ public class Jellyfish : MonoBehaviour
                 if (transform.position.y <= init_pos.y + min_up)
                     go_up = !go_up;
             }
-
-            to_go = player.position - transform.position;
-            transform.Translate(to_go.normalized * 0.02f);
         }
         else
         {

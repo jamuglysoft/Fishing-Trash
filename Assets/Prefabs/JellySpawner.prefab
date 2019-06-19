@@ -50,6 +50,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obj: {fileID: 4799719615808109827, guid: 0884e49436c59fb48aa17c21018b5257, type: 3}
   time_to_spawn: 4
-  first_spawn: 1
-  max_jelly: 5
+  first_spawn: 5
+  max_jelly: 10
   active_jelly: 0

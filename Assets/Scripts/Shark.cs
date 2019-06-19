@@ -9,12 +9,27 @@ public class Shark : MonoBehaviour
 
     public GameObject shark;
 
+    public bool dead = false;
+
+    private SpriteRenderer sprite;
+    private Rigidbody2D rigid_body;
+    private BoxCollider2D coll;
+    private Animator anim;
+
+
+    float time_to_die = 0.0f;
+
     BoxCollider2D a;
     BoxCollider2D b;
     BoxCollider2D c;
     // Start is called before the first frame update
     void Start()
     {
+        sprite = GetComponent<SpriteRenderer>();
+        rigid_body = GetComponent<Rigidbody2D>();
+        coll = GetComponent<BoxCollider2D>();
+        anim = GetComponent<Animator>();
+
         List<BoxCollider2D> list = new List<BoxCollider2D>();
         GetComponentsInParent<BoxCollider2D>(true,list);
         a = list[0];
@@ -42,11 +57,22 @@ public class Shark : MonoBehaviour
             life -= collision.gameObject.GetComponent<laser>().damage;
             if (life <= 0)
             {
-                GameObject instance = Instantiate(shark);
-                instance.transform.position = new Vector3(-80, 0, 0);
-                Destroy(gameObject);
-
+                dead = true;
+                time_to_die = Time.realtimeSinceStartup;
+                sprite.flipY = true;
+                anim.Play("Shark_Dead");
+                rigid_body.gravityScale = 0.5f;
+                speed = 0;
+                Destroy(coll.gameObject.GetComponent<BoxCollider2D>());
             }
+        }
+    }
+
+    private void Die()
+    {
+        if(Time.realtimeSinceStartup-time_to_die>=3)
+        {
+            Destroy(gameObject);
         }
     }
 }

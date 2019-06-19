@@ -12,6 +12,7 @@ public class Jellyfish : MonoBehaviour
 
     public Transform player;
     private Vector3 to_go;
+    private BoxCollider2D coll;
 
     private Vector3 init_pos;
     private bool die = false;
@@ -23,6 +24,7 @@ public class Jellyfish : MonoBehaviour
         init_pos = transform.position;
 
         sprite_render = GetComponent<SpriteRenderer>();
+        coll = GetComponent<BoxCollider2D>();
 
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 
@@ -48,6 +50,10 @@ public class Jellyfish : MonoBehaviour
                 if (transform.position.y <= init_pos.y + min_up)
                     go_up = !go_up;
             }
+
+            to_go = player.position - transform.position;
+            transform.Translate(to_go.normalized * 0.02F);
+
         }
         else
         {
@@ -64,6 +70,7 @@ public class Jellyfish : MonoBehaviour
             if (life <= 0)
             {
                 die = true;
+                Destroy(coll.gameObject.GetComponent<BoxCollider2D>());
                 StartCoroutine(Die());
             }
         }

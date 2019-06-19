@@ -43,7 +43,11 @@ public class PlayerController : MonoBehaviour
     private float axis_x = 0.0F;
     private float axis_y = 0.0F;
 
+    public float seconds_between_laser = 0.0f;
+
     private bool grow = false;
+
+    private float laser_timer = 0.0f;
 
     bool m_isAxisInUse = false;
 
@@ -64,15 +68,14 @@ public class PlayerController : MonoBehaviour
         Debug.Log(Input.GetAxisRaw("Fire1"));
         Debug.Log(m_isAxisInUse);
         if (Input.GetAxisRaw("Fire1") != 0f && ability2)
+           if( m_isAxisInUse == false && (Time.realtimeSinceStartup - laser_timer >= seconds_between_laser))
         {
-            if (m_isAxisInUse == false)
-            {
+                laser_timer = Time.realtimeSinceStartup;
                 GameObject instant = Instantiate(laser);
                 instant.transform.position = transform.position + transform.right * 0.75f;
                 instant.transform.up = transform.right;
                 AudioScript.PlaySound("laser");
                 m_isAxisInUse = true;
-            }
         }
         if (Input.GetAxisRaw("Fire1") == 0f)
         {

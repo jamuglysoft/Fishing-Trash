@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TrashManager : MonoBehaviour
 {
@@ -127,6 +128,7 @@ public class TrashManager : MonoBehaviour
             AudioSource.clip = song4;
             AudioSource.Play();
             bars_done = true;
+            SceneManager.LoadScene("Win", LoadSceneMode.Single);
         }
     }
 }

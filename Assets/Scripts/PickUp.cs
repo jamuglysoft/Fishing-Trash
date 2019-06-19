@@ -29,6 +29,7 @@ public class PickUp : MonoBehaviour
             Destroy(collision.gameObject);
             number_trash++;
             text_trash.text = "Trash: " + number_trash.ToString();
+            GameObject.Find("TrashManager").GetComponent<TrashManager>().UpdateBar();
         }
         if (collision.CompareTag("Ability1"))
         {
@@ -39,7 +40,6 @@ public class PickUp : MonoBehaviour
         {
             Destroy(collision.gameObject);
             GameObject.Find("Player").GetComponent<PlayerController>().ability2 = true;
-
         }
     }
 }

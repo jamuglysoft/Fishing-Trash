@@ -8,6 +8,7 @@ TagManager:
   - MapLimit
   - Laser
   - Enemy
+  - Ability1
   layers:
   - Default
   - TransparentFX

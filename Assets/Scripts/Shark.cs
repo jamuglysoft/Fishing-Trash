@@ -16,4 +16,12 @@ public class Shark : MonoBehaviour
     {
         transform.Translate(Vector3.right * speed * Time.deltaTime);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("SharkCollider")){
+            transform.localScale = new Vector3(transform.localScale.x*-1, 1, 1);
+            speed *= -1;
+        }
+    }
 }

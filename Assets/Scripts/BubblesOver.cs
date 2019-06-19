@@ -10,6 +10,17 @@ public class BubblesOver : MonoBehaviour
     public AudioSource hover_sfx_source;
     public AudioClip hover_sfx;
 
+    //private void Update()
+    //{
+    //    if (IsHighlighted())
+    //    {
+    //        SetBubble();
+    //    }
+    //    else
+    //    {
+    //        DestroyBubble();
+    //    }
+    //}
     private void Start()
     {
         //GetComponent<Button>().Select();

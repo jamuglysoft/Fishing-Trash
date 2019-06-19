@@ -1713,6 +1713,11 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 0.5317857
       objectReference: {fileID: 0}
+    - target: {fileID: 4366103035185867821, guid: 0b7db1de195c23447b229543c58dc43c,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b7db1de195c23447b229543c58dc43c, type: 3}
 --- !u!1 &976759994
@@ -1886,7 +1891,7 @@ GameObject:
   - component: {fileID: 1225348289}
   m_Layer: 0
   m_Name: Colliders
-  m_TagString: Untagged
+  m_TagString: MapLimit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

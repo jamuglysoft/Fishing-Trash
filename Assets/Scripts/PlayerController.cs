@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
         IDLE = 1,
         MOVE = 2,
         FLASHING = 3,
+        DEAD=4,
 
         NONE
     }
@@ -21,6 +22,8 @@ public class PlayerController : MonoBehaviour
     public Vector2 flash_force;
     private Vector2 flash_axis;
     private float flash_time = 0.0F;
+    private float time_to_die = 0.0f;
+    private bool dead = false;
 
     public PlayerStates player_state = PlayerStates.IDLE;
 
@@ -143,6 +146,13 @@ public class PlayerController : MonoBehaviour
                     flashing = false;
                 }
                 break;
+            case PlayerStates.DEAD:
+                rigid_body.gravityScale = 2;
+                if (Time.realtimeSinceStartup - time_to_die >= 5 && dead)
+                {
+                    SceneManager.LoadScene(("MainMenu"), LoadSceneMode.Single);
+                }
+                break;
             default:
                 break;
         }
@@ -161,7 +171,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Enemy"))
         {
-            // Pos ma dao el bicho
+            player_state = PlayerStates.DEAD;
         }
     }
 
@@ -191,7 +201,8 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerDead()
     {
-        SceneManager.LoadScene(("MainMenu"), LoadSceneMode.Single);
+        time_to_die = Time.realtimeSinceStartup;
+        sprite.flipY = !sprite.flipY;
+        dead = true;
     }
-
 }

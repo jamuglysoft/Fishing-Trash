@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     }
 
     private bool flashing = false;
+    public bool ability1 = false;
+    public bool ability2 = false;
 
     public float flash_cooldown = 0.0F;
     public Vector2 flash_force;
@@ -31,7 +33,6 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rigid_body;
     private SpriteRenderer sprite;
     private PolygonCollider2D collision;
-
 
     public float speed = 0.0F;
     public float water_friction = 0.0F;
@@ -101,7 +102,7 @@ public class PlayerController : MonoBehaviour
         axis_x = Input.GetAxis("Horizontal");
         axis_y = Input.GetAxis("Vertical");
 
-        if ((Input.GetKeyDown(KeyCode.Joystick1Button5) || Input.GetKeyDown(KeyCode.LeftShift))  && !flashing&&axis_x!=0)
+        if ((Input.GetKeyDown(KeyCode.Joystick1Button5) || Input.GetKeyDown(KeyCode.LeftShift))  && !flashing &&  axis_x!=0 && ability1)
         {
             player_state = PlayerStates.FLASHING;
             flash_axis = new Vector2(axis_x, axis_y);
@@ -179,7 +180,7 @@ public class PlayerController : MonoBehaviour
             if (grow == false)
             {
                 StartCoroutine(LerpScale(0.5f));
-            }  
+            }
         }
         else if (collision.gameObject.CompareTag("Enemy"))
         {

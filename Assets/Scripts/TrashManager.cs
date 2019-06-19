@@ -12,7 +12,9 @@ public class TrashManager : MonoBehaviour
     int trash_spawned = 0;
     public int max_trash = 1;
     public PickUp trash_collected;
-
+    public List<Bar> bars = new List<Bar>();
+    private Bar current_bar;
+    private bool bars_done = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,8 @@ public class TrashManager : MonoBehaviour
 
         for (int i = 0; i < first_spawn; i++)
             SpawnTrash();
+
+        current_bar = bars[0];
     }
 
     // Update is called once per frame
@@ -41,5 +45,48 @@ public class TrashManager : MonoBehaviour
             Random.Range(area_spawn.rect.yMin, area_spawn.rect.yMax),
             instance.transform.position.z) + area_spawn.transform.position;
         trash_spawned++;
+    }
+    public void UpdateBar()
+    {
+        if (!bars_done && current_bar.TrashPicked())
+        {
+            if (current_bar.IsMiddle())
+                MiddleEvents();
+            NextBar();
+        }
+    }
+    public void MiddleEvents()
+    {
+        if (current_bar == bars[0])
+        {
+            //posar el spawn de medusas
+
+        }
+        else if (current_bar == bars[1])
+        {
+            //posar spawn sharks 
+
+        }
+    }
+    public void NextBar()
+    {
+        if (current_bar == bars[0])
+        {
+            //ability 1 spawn
+
+            current_bar = bars[1];
+        }
+        else if (current_bar == bars[1])
+        {
+            //posar ability 2
+
+            current_bar = bars[2];
+        }
+        else if (current_bar == bars[2])
+        {
+            //boss
+
+            bars_done = true;
+        }
     }
 }

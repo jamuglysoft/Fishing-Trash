@@ -16,6 +16,8 @@ public class TrashManager : MonoBehaviour
     private Bar current_bar;
     private bool bars_done = false;
     public GameObject jelly_spawner;
+    public GameObject ability1;
+    public GameObject ability2;
     // Start is called before the first frame update
     void Start()
     {
@@ -51,10 +53,10 @@ public class TrashManager : MonoBehaviour
     {
         if (!bars_done && current_bar.TrashPicked())
         {
-            if (current_bar.IsMiddle())
-                MiddleEvents();
             NextBar();
         }
+        if (current_bar.IsMiddle())
+            MiddleEvents();
     }
     public void MiddleEvents()
     {
@@ -72,13 +74,13 @@ public class TrashManager : MonoBehaviour
     {
         if (current_bar == bars[0])
         {
-            //ability 1 spawn
+            Instantiate(ability1);
 
             current_bar = bars[1];
         }
         else if (current_bar == bars[1])
         {
-            //posar ability 2
+            Instantiate(ability2);
 
             current_bar = bars[2];
         }

@@ -47,9 +47,9 @@ public class CameraScript : MonoBehaviour
         {
             camera_pivot.transform.position = new Vector3(camera_pivot.transform.position.x, cam_limits.transform.position.y, camera_pivot.transform.position.z);
         }
-        if (camera_pivot.transform.position.y < cam_limits.transform.position.y - 26.2F)
+        if (camera_pivot.transform.position.y < cam_limits.transform.position.y - 14.2F)
         {
-            camera_pivot.transform.position = new Vector3(camera_pivot.transform.position.x, cam_limits.transform.position.y - 26.2F, camera_pivot.transform.position.z);
+            camera_pivot.transform.position = new Vector3(camera_pivot.transform.position.x, cam_limits.transform.position.y - 14.2F, camera_pivot.transform.position.z);
         }
     }
 }

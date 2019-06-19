@@ -1603,16 +1603,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1579896340305089133, guid: 0b7db1de195c23447b229543c58dc43c,
-        type: 3}
-      propertyPath: text_trash
-      value: 
-      objectReference: {fileID: 1802125757}
-    - target: {fileID: 1579896340305089133, guid: 0b7db1de195c23447b229543c58dc43c,
-        type: 3}
-      propertyPath: text_trash
-      value: 
-      objectReference: {fileID: 1802125757}
     - target: {fileID: 4366103035185867820, guid: 0b7db1de195c23447b229543c58dc43c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1668,6 +1658,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1579896340305089133, guid: 0b7db1de195c23447b229543c58dc43c,
+        type: 3}
+      propertyPath: text_trash
+      value: 
+      objectReference: {fileID: 1802125757}
+    - target: {fileID: 1579896340305089133, guid: 0b7db1de195c23447b229543c58dc43c,
+        type: 3}
+      propertyPath: text_trash
+      value: 
+      objectReference: {fileID: 1802125757}
     - target: {fileID: 4366103035185867823, guid: 0b7db1de195c23447b229543c58dc43c,
         type: 3}
       propertyPath: flash_force.x
@@ -3123,7 +3123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a399bc36765f8154aba6270aceb152ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
+  cam: {fileID: 1488172007}
   speed: 0.4
 --- !u!4 &1744783991
 Transform:

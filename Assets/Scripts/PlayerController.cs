@@ -175,18 +175,18 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //transform.lossyScale{ };
-        if (collision.gameObject.CompareTag("PickUp"))
-        {
-            AudioScript.PlaySound("pick_trash");
-            if (grow == false&&dead==false)
-            {
-                StartCoroutine(LerpScale(0.5f));
-            }
-        }
-        else if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             player_state = PlayerStates.DEAD;
+        }
+    }
+
+    public void PickUpCollision()
+    {
+        AudioScript.PlaySound("pick_trash");
+        if (grow == false && dead == false)
+        {
+            StartCoroutine(LerpScale(0.5f));
         }
     }
 

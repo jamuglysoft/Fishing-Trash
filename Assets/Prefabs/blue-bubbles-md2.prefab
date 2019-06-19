@@ -147,8 +147,8 @@ MonoBehaviour:
   rotation_angle: 0
   min_angle_speed: 0.5
   max_angle_speed: 3
-  buble_ability_sfx: {fileID: 0}
-  buble_ability_sfx_source: {fileID: 0}
+  buble_ability_sfx: {fileID: 8300000, guid: fb0c1c1661d694c4a953363537283f21, type: 3}
+  buble_ability_sfx_source: {fileID: 8829789401633635201}
 --- !u!82 &8829789401633635201
 AudioSource:
   m_ObjectHideFlags: 0

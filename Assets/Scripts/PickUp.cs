@@ -26,6 +26,7 @@ public class PickUp : MonoBehaviour
         if (collision.CompareTag("PickUp"))
         {
             GameObject.Find("TrashManager").GetComponent<TrashManager>().UpdateBar();
+            GetComponentInParent<PlayerController>().PickUpCollision();
             Destroy(collision.gameObject);
             number_trash++;
             
